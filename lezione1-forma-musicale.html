@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Connetti con la Classica — Lezione 1: La forma musicale</title>
+
+  <!-- Reveal.js 5.2.1 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/black.css" id="theme">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --text: #e8e0d4;
+      --accent: #c9a96e;
+      --accent-dim: rgba(201, 169, 110, 0.3);
+    }
+
+    .reveal-viewport {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(30, 30, 60, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse at 80% 100%, rgba(20, 15, 30, 0.3) 0%, transparent 50%);
+    }
+
+    .reveal {
+      font-family: 'Inter', sans-serif;
+      font-size: 92px;
+      font-weight: 300;
+      color: var(--text);
+    }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .reveal h1 { font-size: 2em; font-weight: 700; }
+    .reveal h2 { font-size: 1.5em; font-weight: 600; color: var(--accent); margin-bottom: 0.3em; }
+    .reveal h3 { font-size: 1.2em; font-weight: 600; }
+
+    .reveal p, .reveal li { line-height: 1.4; }
+
+    .reveal ul { list-style: none; padding-left: 0; }
+    .reveal ul li {
+      padding-left: 1em;
+      position: relative;
+      margin-bottom: 0.4em;
+    }
+    .reveal ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .reveal .accent { color: var(--accent); }
+    .reveal .dim { color: rgba(232, 224, 212, 0.45); font-size: 0.5em; }
+
+    .reveal blockquote {
+      background: rgba(201, 169, 110, 0.08);
+      border-left: 6px solid var(--accent);
+      padding: 0.5em 0.8em;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1em;
+      width: 95%;
+      margin: 0.4em auto;
+    }
+    .reveal blockquote cite {
+      display: block;
+      font-style: normal;
+      font-size: 0.55em;
+      color: var(--accent);
+      margin-top: 0.3em;
+      text-align: right;
+    }
+
+    /* Section headers */
+    .reveal .section-header { text-align: center; }
+    .reveal .section-header h2 { font-size: 1.8em; color: var(--text); }
+    .reveal .section-header .section-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.45em;
+      color: var(--accent);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.15em;
+    }
+    .reveal .section-header .section-subtitle {
+      font-size: 0.45em;
+      color: rgba(232, 224, 212, 0.55);
+      margin-top: 0.15em;
+    }
+
+    .reveal .epoch-bar { height: 4px; width: 150px; margin: 0.4em auto; border-radius: 2px; }
+
+    /* Video */
+    .reveal .video-container {
+      width: 1400px;
+      max-width: 98%;
+      margin: 0 auto;
+    }
+    .reveal .video-container iframe {
+      width: 1400px;
+      height: 788px;
+      border: none;
+      border-radius: 4px;
+    }
+    .reveal .video-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.55em;
+      color: var(--accent);
+      margin-bottom: 0.2em;
+      text-align: center;
+    }
+    .reveal .video-label .composer { font-weight: 600; }
+
+    /* Placeholder video */
+    .reveal .video-placeholder {
+      width: 1400px; height: 788px;
+      max-width: 98%;
+      margin: 0 auto;
+      border: 3px dashed var(--accent-dim);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(201, 169, 110, 0.03);
+    }
+    .reveal .video-placeholder .placeholder-icon { font-size: 2.5em; opacity: 0.4; }
+    .reveal .video-placeholder .placeholder-text { font-size: 0.4em; color: rgba(232,224,212,0.4); }
+
+    /* Split layout */
+    .reveal .split-slide {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+      text-align: left;
+    }
+    .reveal .split-slide .split-text { flex: 1; }
+    .reveal .split-slide .split-image { flex: 0 0 auto; max-width: 30%; }
+    .reveal .split-slide .split-image img {
+      max-height: 750px;
+      border-radius: 6px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    /* Table */
+    .reveal table { margin: 0.3em auto; border-collapse: collapse; font-size: 0.6em; }
+    .reveal table th {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--accent);
+      padding: 0.3em 0.6em;
+      border-bottom: 3px solid var(--accent-dim);
+      text-align: left;
+    }
+    .reveal table td { padding: 0.25em 0.6em; border-bottom: 1px solid rgba(232,224,212,0.1); }
+
+    /* Key phrase */
+    .reveal .key-phrase {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6em;
+      font-style: italic;
+      font-weight: 600;
+      line-height: 1.25;
+      text-align: center;
+    }
+    .reveal .key-phrase .highlight { color: var(--accent); }
+
+    /* Reflection */
+    .reveal .reflection { text-align: center; font-family: 'Cormorant Garamond', serif; }
+    .reveal .reflection p { font-size: 1.1em; font-style: italic; max-width: 90%; margin: 0 auto; }
+
+    /* Title */
+    .reveal .title-slide h1 { font-size: 2.2em; margin-bottom: 0.1em; }
+    .reveal .title-slide .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.7em; font-style: italic;
+      color: rgba(232,224,212,0.7);
+      margin-bottom: 0.4em;
+    }
+    .reveal .title-slide .meta { font-size: 0.4em; color: rgba(232,224,212,0.5); margin-top: 0.6em; }
+    .reveal .title-slide .meta .presenter { color: var(--accent); font-size: 1.2em; }
+
+    .gold-line { width: 100px; height: 3px; background: var(--accent); margin: 0.3em auto; }
+
+    /* Sonata diagram */
+    .reveal .sonata-diagram { display: flex; gap: 4px; margin: 0.3em auto; max-width: 98%; }
+    .reveal .sonata-section { padding: 0.4em; border-radius: 6px; text-align: center; }
+    .reveal .sonata-section .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600; font-size: 0.5em; display: block; margin-bottom: 0.15em;
+    }
+    .reveal .sonata-section .section-detail { font-size: 0.35em; opacity: 0.7; }
+    .sonata-expo { background: rgba(42,58,90,0.5); border: 1px solid rgba(42,58,90,0.8); flex: 3; }
+    .sonata-dev { background: rgba(90,42,42,0.5); border: 1px solid rgba(90,42,42,0.8); flex: 2; }
+    .sonata-recap { background: rgba(42,58,90,0.4); border: 1px solid rgba(42,58,90,0.6); flex: 2.5; }
+    .sonata-coda { background: rgba(42,74,58,0.4); border: 1px solid rgba(42,74,58,0.6); flex: 1; }
+
+    /* Timeline cards */
+    .reveal .timeline-card {
+      text-align: center; flex: 1; min-width: 100px;
+      padding: 0.3em; border-radius: 8px;
+    }
+    .reveal .timeline-card .epoch-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.4em; font-weight: 600;
+    }
+    .reveal .timeline-card .epoch-concept { font-size: 0.3em; color: var(--accent); margin-top: 0.1em; }
+
+    .reveal .img-attr { font-size: 0.2em; color: rgba(232,224,212,0.2); text-align: center; margin-top: 0.15em; }
+
+    .reveal .progress { color: var(--accent); height: 4px; }
+    .reveal .slide-number { font-family: 'Inter', sans-serif; font-size: 18px; color: rgba(232,224,212,0.3); }
+
+    @media print {
+      .reveal-viewport { background: #1a1a2e !important; }
+    }
+
+    /* Inline notes toggle (for iPad / no-keyboard) */
+    .notes-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      background: var(--accent);
+      color: #0a0a0f;
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      opacity: 0.85;
+      transition: opacity 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .notes-toggle:hover { opacity: 1; }
+
+    .reveal .inline-notes {
+      display: none;
+      background: rgba(201, 169, 110, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 0.3em 0.5em;
+      margin-top: 0.4em;
+      font-size: 0.38em;
+      line-height: 1.5;
+      text-align: left;
+      max-height: 450px;
+      overflow-y: auto;
+      border-radius: 4px;
+      color: rgba(232, 224, 212, 0.85);
+    }
+    .reveal .inline-notes b { color: var(--accent); }
+
+    .show-notes .reveal .inline-notes { display: block; }
+    .show-notes .notes-toggle { background: #e8e0d4; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+  <!-- ============================================================
+       0. TITOLO
+       ============================================================ -->
+  <section class="title-slide" data-background-gradient="radial-gradient(ellipse at 50% 30%, #1a1a2e 0%, #0a0a0f 70%)">
+    <h1>Connetti con la Classica</h1>
+    <div class="subtitle">Lezione 1</div>
+    <div class="gold-line"></div>
+    <h3 style="font-weight: 400; font-style: italic; color: var(--accent); margin-top: 0.3em;">
+      La forma musicale come struttura<br>del tempo e visione del mondo
+    </h3>
+    <div class="meta">
+      <div class="presenter">Marina Scalafiotti</div>
+      <div style="margin-top: 0.3em;">Connetti con la Classica &middot; 2026</div>
+    </div>
+    <aside class="notes">
+      <b>Benvenuti a tutti.</b> Questa è la prima lezione del nostro percorso "Connetti con la Classica".
+      Oggi faremo un grande viaggio: attraverseremo più di mille anni di musica occidentale,
+      dal canto gregoriano fino ai compositori del nostro tempo.
+
+      <b>Il filo conduttore sarà una domanda: che cos'è la forma musicale?</b>
+      Vedremo che ogni epoca ha risposto in modo diverso, perché il modo in cui
+      organizziamo i suoni nel tempo riflette sempre il modo in cui pensiamo il mondo.
+
+      <b>Faremo undici tappe</b> — Medioevo, Rinascimento, Barocco, Classicismo,
+      Romanticismo, e poi avanti fino a Debussy, Schoenberg, Stravinsky,
+      Cage, Glass e Arvo Pärt. Per ogni tappa ascolteremo un brano,
+      breve ma significativo, e cercheremo di capire cosa ci dice
+      sulla mentalità dell'epoca che l'ha prodotto.
+
+      <b>Non serve sapere leggere la musica.</b> Serve solo la curiosità di ascoltare.
+      Cominciamo.
+    </aside>
+  </section>
+
+
+  <!-- ============================================================
+       1. INTRODUZIONE
+       ============================================================ -->
+  <section>
+    <section class="section-header">
+      <div class="section-number">Parte I</div>
+      <h2>Che cos'è la forma?</h2>
+      <div class="section-subtitle">L'architettura del tempo musicale</div>
+    </section>
+
+    <section>
+      <h2>La musica esiste solo nel tempo</h2>
+      <p>Non possiamo "vedere" un brano<br>come vediamo un quadro.</p>
+      <p>Possiamo solo <span class="accent">attraversarlo</span>.</p>
+      <p class="fragment" style="margin-top: 0.6em;">
+        La <strong>forma</strong> è il modo in cui<br>
+        organizziamo questo viaggio.
+      </p>
+      <aside class="notes">
+        <b>Pensateci un attimo:</b> quando guardate un quadro, lo vedete tutto insieme.
+        Potete osservare un angolo, poi un altro, tornare indietro.
+        Il quadro è lì, fermo, tutto disponibile nello stesso istante.
+
+        <b>La musica no. La musica esiste solo nel tempo.</b> Non potete "vedere" una sinfonia
+        come vedete un quadro. Potete solo attraversarla, nota dopo nota, momento dopo momento.
+        Quando arrivate alla fine, l'inizio non c'è più — esiste solo nella vostra memoria.
+
+        E allora la domanda diventa: come si organizza questo viaggio?
+        Come si dà una struttura a qualcosa che scorre e scompare?
+        <b>La risposta è la forma.</b> La forma musicale è il modo in cui il compositore
+        organizza il tempo sonoro — decide cosa viene prima, cosa viene dopo,
+        cosa ritorna, cosa sorprende. È l'architettura invisibile della musica.
+      </aside>
+    </section>
+
+    <section>
+      <div class="split-slide">
+        <div class="split-text">
+          <blockquote>
+            «Che cos'è dunque il tempo?<br>
+            Se nessuno me lo chiede, lo so;<br>
+            se dovessi spiegarlo, non lo so.»
+            <cite>Sant'Agostino, Confessioni XI</cite>
+          </blockquote>
+        </div>
+        <div class="split-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Sandro_Botticelli_-_St_Augustine_-_WGA02709.jpg"
+               alt="Sant'Agostino, Botticelli">
+          <div class="img-attr">Botticelli, 1480</div>
+        </div>
+      </div>
+      <aside class="notes">
+        <b>Questa frase è di Sant'Agostino</b>, dalle Confessioni, libro undicesimo.
+        Siamo nel IV secolo dopo Cristo. Agostino si interroga sulla natura del tempo
+        e arriva a questa conclusione meravigliosa: il tempo lo capiamo tutti,
+        lo viviamo ogni istante, ma se qualcuno ci chiede di spiegarlo, non ci riusciamo.
+
+        <b>La musica fa esattamente questo:</b> prende il tempo — questa cosa misteriosa
+        e inafferrabile — e gli dà una forma. Lo rende percepibile, lo struttura,
+        lo trasforma in esperienza. In un certo senso, la musica è la risposta
+        più bella alla domanda di Agostino. Non spiega il tempo: lo fa sentire.
+
+        Nell'immagine vedete Sant'Agostino dipinto da Botticelli nel 1480 —
+        lo studio del santo, i libri, la concentrazione. Un uomo che cerca
+        di capire il tempo con le parole. I musicisti lo fanno con i suoni.
+      </aside>
+    </section>
+
+    <section>
+      <div class="key-phrase">
+        La forma musicale<br><span class="highlight">riflette la visione del mondo</span><br>di ogni epoca.
+      </div>
+      <aside class="notes">
+        <b>Questa è la tesi centrale di tutta la lezione</b>, e vorrei che ve la portaste a casa:
+        la forma musicale non è un fatto tecnico, non è roba da addetti ai lavori.
+        È qualcosa di profondo: riflette il modo in cui una civiltà pensa il mondo.
+
+        Nel Medioevo, quando il tempo era visto come ciclico e sacro,
+        la musica era circolare, senza inizio né fine chiara.
+        Nell'Illuminismo, quando si credeva nella ragione e nella simmetria,
+        nasce la forma sonata — perfettamente bilanciata, logica, razionale.
+        Nel Romanticismo, quando l'individuo diventa il centro di tutto,
+        la musica diventa autobiografia, racconto personale.
+
+        <b>Ogni volta che cambia la visione del mondo, cambia la forma musicale.</b>
+        Oggi faremo questo viaggio: undici epoche, undici forme, undici modi
+        di pensare il tempo. Dal Medioevo fino ad Arvo Pärt.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       2. TEMPO, MISURA, DURATA
+       ============================================================ -->
+  <section>
+    <section class="section-header">
+      <div class="section-number">Parte II</div>
+      <h2>Tempo, misura, durata</h2>
+      <div class="section-subtitle">I parametri fondamentali</div>
+    </section>
+
+    <section>
+      <h2>Tre parametri</h2>
+      <ul>
+        <li><span class="accent">Pulsazione</span> — il battito,<br>il "cuore" della musica</li>
+        <li class="fragment"><span class="accent">Ritmo</span> — il disegno<br>delle durate</li>
+        <li class="fragment"><span class="accent">Metro</span> — l'organizzazione<br>in battute e accenti</li>
+      </ul>
+      <aside class="notes">
+        Prima di partire nel nostro viaggio, dobbiamo capire tre concetti di base
+        che torneranno in continuazione.
+
+        <b>Il primo è la pulsazione.</b> Pensate al vostro cuore: batte regolarmente,
+        un colpo dopo l'altro. La pulsazione musicale è la stessa cosa —
+        è il battito di fondo della musica, quello che ci fa battere il piede.
+        Nel canto gregoriano, come vedremo, questa pulsazione non c'è.
+        Nel Barocco diventa fortissima. Già questo ci dice molto su un'epoca.
+
+        <b>Il secondo è il ritmo:</b> il disegno delle durate. Note lunghe, note brevi,
+        pause. Il ritmo è come il linguaggio del corpo nella musica.
+
+        <b>Il terzo è il metro:</b> l'organizzazione in battute regolari con accenti
+        forti e deboli. Un valzer è in tre tempi, una marcia in due.
+        Ma attenzione: il metro regolare è un'invenzione relativamente recente.
+        Nel Medioevo non esisteva. Stravinsky lo distruggerà nel 1913.
+        Il metro non è naturale: è una scelta culturale.
+      </aside>
+    </section>
+
+    <section>
+      <h2>Mattheson, 1713</h2>
+      <p style="font-size: 0.75em;">Il carattere delle tonalità:</p>
+      <table>
+        <thead><tr><th>Tonalità</th><th>Carattere</th></tr></thead>
+        <tbody>
+          <tr><td>Do maggiore</td><td>Allegro, guerriero</td></tr>
+          <tr><td>Re minore</td><td>Devoto, solenne</td></tr>
+          <tr><td>Mi♭ maggiore</td><td>Patetico, serio</td></tr>
+          <tr><td>Sol maggiore</td><td>Dolce, vivace</td></tr>
+          <tr><td>La minore</td><td>Malinconico, tenero</td></tr>
+        </tbody>
+      </table>
+      <aside class="notes">
+        <b>Questa tabella viene da un trattato del 1713 di Johann Mattheson</b>,
+        un teorico tedesco contemporaneo di Bach. Mattheson sosteneva che
+        ogni tonalità avesse un carattere preciso: Do maggiore è allegro e guerriero,
+        Re minore è devoto e solenne, e così via.
+
+        Oggi ci sembra strano — un Do maggiore suonato sul nostro pianoforte
+        è uguale a un Re maggiore, solo un tono più in alto.
+        Ma all'epoca di Bach le accordature erano diverse: ogni tonalità
+        suonava davvero in modo diverso, con intervalli leggermente diseguali.
+        Quindi Mattheson non si inventava nulla: riportava una realtà acustica.
+
+        Questa idea del "carattere" delle tonalità è importante perché ci dice
+        che per secoli <b>la musica non è stata solo un fatto di note:
+        era un sistema di significati.</b> Ogni scelta — la tonalità, il ritmo,
+        il tempo — portava con sé un messaggio che il pubblico riconosceva.
+        Oggi abbiamo perso molti di questi codici. Parte del nostro lavoro
+        è riscoprirli.
+
+        <b>Bene, ora siamo pronti per il viaggio. Partiamo dal Medioevo.</b>
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       3. MEDIOEVO
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/f/f6/Allegory_of_Music_%28Echecs_amoureux%29.jpg"
+             data-background-opacity="0.15" data-background-size="cover">
+      <div class="section-number">Parte III &middot; Medioevo</div>
+      <h2>La forma come<br>estensione del sacro</h2>
+      <div class="epoch-bar" style="background: #5b3a29;"></div>
+      <div class="section-subtitle">Monodia, preghiera, tempo ciclico</div>
+    </section>
+
+    <section>
+      <div class="split-slide">
+        <div class="split-text">
+          <h2>Il canto gregoriano</h2>
+          <ul>
+            <li>Una <span class="accent">sola voce</span> — monodia pura</li>
+            <li>Nessuna battuta, ritmo libero</li>
+            <li>La voce segue il respiro<br>della preghiera</li>
+          </ul>
+        </div>
+        <div class="split-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Tu_es_deus.jpg"
+               alt="Neumi medievali" style="max-height: 400px;">
+          <div class="img-attr">Cantatorium di San Gallo, IX sec.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        <b>Eccoci nel Medioevo.</b> La prima cosa da capire è che per secoli <b>la musica
+        in Occidente è stata una cosa sola: preghiera.</b> Si cantava in chiesa,
+        per Dio, e si cantava tutti insieme all'unisono — una sola voce,
+        una sola melodia. Questo si chiama <b>monodia</b>.
+
+        Non c'erano battute, non c'era un "uno-due-tre-quattro" come siamo
+        abituati oggi. Il ritmo seguiva le parole del testo latino.
+        La voce respirava con la preghiera: saliva, raggiungeva un apice,
+        ridiscendeva. Come un respiro, appunto.
+
+        Nell'immagine vedete il Cantatorium di San Gallo, uno dei più antichi
+        manoscritti musicali che possediamo, risale al IX secolo.
+        Quei segni sopra il testo si chiamano <b>neumi</b> — sono una specie
+        di promemoria per il cantore: "qui la voce sale", "qui scende",
+        "qui fai un gruppetto di note". Non indicano note precise
+        come il nostro pentagramma: indicano il gesto della voce.
+        Era una musica che si trasmetteva soprattutto a memoria,
+        da monaco a monaco, da generazione a generazione.
+      </aside>
+    </section>
+
+    <section>
+      <h2>Veni Creator Spiritus</h2>
+      <ul>
+        <li>Inno attribuito a <span class="accent">Rabano Mauro</span>,<br>IX secolo</li>
+        <li>Si canta a <span class="accent">Pentecoste</span>,<br>ai conclavi papali, alle ordinazioni</li>
+        <li>Modo VIII (ipomissolidio):<br>luminoso e solenne</li>
+        <li>Forma <span class="accent">strofica</span>: stessa melodia<br>per tutte le 7 strofe</li>
+      </ul>
+      <aside class="notes">
+        <b>Il brano che ascolteremo è il Veni Creator Spiritus</b>, uno degli inni gregoriani
+        più importanti della cristianità. È attribuito a Rabano Mauro, abate di Fulda,
+        nel IX secolo — ma come per molto canto gregoriano, l'attribuzione è incerta.
+
+        Sapete dove si canta questo inno? <b>Nella Cappella Sistina, prima di eleggere
+        un nuovo Papa.</b> Quando i cardinali si chiudono in conclave, la prima cosa
+        che fanno è cantare il Veni Creator Spiritus — "Vieni, Spirito Creatore".
+        Si canta anche alle ordinazioni sacerdotali e a Pentecoste.
+        È un inno che invoca l'ispirazione divina.
+
+        La melodia è nel modo VIII, l'ipomissolidio, che ha un carattere
+        luminoso e solenne. <b>La forma è strofica:</b> la stessa identica melodia
+        si ripete per tutte e sette le strofe del testo. Non c'è sviluppo,
+        non c'è contrasto, non c'è un "prima" e un "dopo" diversi.
+        La melodia è un arco: parte dal basso, sale verso un apice,
+        e ridiscende. Come un respiro. Come una preghiera che si ripete
+        uguale, perché nel tempo medievale non c'è progresso —
+        c'è eternità.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Veni Creator Spiritus</span> — Canto gregoriano monodico
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/HEKuxUOPzk8?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Adesso ascoltiamo. Fate attenzione a tre cose.</b>
+
+        <b>Primo:</b> c'è una sola voce. Nessun accompagnamento, nessuno strumento.
+        Solo la voce umana. È il mezzo espressivo più antico e più diretto.
+
+        <b>Secondo:</b> non c'è un ritmo regolare. Non potete battere il piede
+        a tempo, perché non c'è un tempo fisso. La voce segue il respiro
+        del testo latino, si allunga sulle sillabe importanti, si abbrevia
+        sulle altre. È una libertà ritmica che noi abbiamo completamente perso.
+
+        <b>Terzo:</b> ascoltate la curva della melodia. Sale, raggiunge un punto alto,
+        e ridiscende. È la forma più semplice e più naturale che esista:
+        l'arco. Come un sospiro, come un'onda.
+
+        <b>Questo è il punto di partenza del nostro viaggio</b>, il grado zero
+        della musica occidentale. Tenetelo in mente, perché alla fine
+        della lezione, con Arvo Pärt, torneremo esattamente qui.
+      </aside>
+    </section>
+
+    <section class="reflection">
+      <h3 style="color: var(--accent);">Riflessione</h3>
+      <div class="gold-line"></div>
+      <p>
+        Il tempo medievale è <span class="accent">ciclico</span>.<br>
+        La musica non "va da qualche parte" —<br>
+        <span class="accent">è già dove deve essere</span>.
+      </p>
+      <aside class="notes">
+        Fermiamoci un momento su questo concetto.
+        <b>Il canto gregoriano non va da nessuna parte.</b> Non c'è tensione
+        che si risolve, non c'è climax, non c'è finale drammatico.
+        La melodia sale e scende, come un respiro, e poi ricomincia identica.
+
+        Perché? Perché nel Medioevo il tempo non è lineare.
+        Non c'è progresso, non c'è una freccia dal passato al futuro.
+        <b>Il tempo è ciclico:</b> le stagioni si ripetono, le preghiere si ripetono,
+        la liturgia si ripete ogni anno identica. L'eternità è il modello.
+        La musica è già dove deve essere.
+
+        Ora vedremo come, epoca dopo epoca, la musica comincerà a muoversi,
+        a voler andare da qualche parte, a cercare una direzione.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       4. RINASCIMENTO
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg/1280px-%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg"
+             data-background-opacity="0.15" data-background-size="cover">
+      <div class="section-number">Parte IV &middot; Rinascimento</div>
+      <h2>Polifonia e<br>ordine umanistico</h2>
+      <div class="epoch-bar" style="background: #2a4a3a;"></div>
+      <div class="section-subtitle">Contrappunto, proporzione, armonia</div>
+    </section>
+
+    <section>
+      <h2>Dalla monodia alla polifonia</h2>
+      <ul>
+        <li><span class="accent">Più voci</span> indipendenti,<br>ciascuna con dignità propria</li>
+        <li>Il <span class="accent">Concilio di Trento</span> (1545–63):<br>la parola deve restare comprensibile</li>
+        <li>Palestrina diventa il modello<br>di <span class="accent">chiarezza polifonica</span></li>
+      </ul>
+      <aside class="notes">
+        <b>Ora facciamo un salto enorme.</b> Dal Medioevo al Rinascimento,
+        dal XV al XVI secolo. E il salto musicale è gigantesco:
+        da una sola voce che canta all'unisono, si passa a più voci
+        indipendenti che cantano insieme. Nasce la <b>polifonia</b>.
+
+        Immaginate: per secoli c'era stata una voce sola.
+        Ora improvvisamente ci sono due, tre, quattro, cinque, sei voci
+        che cantano cose diverse nello stesso momento, e il risultato
+        deve essere armonioso. È come passare da un monologo a un dialogo
+        a sei persone dove tutti parlano insieme — e ci si capisce.
+
+        Questo riflette l'umanesimo: l'idea che più individui,
+        ciascuno con la propria dignità, possano convivere in un ordine armonioso.
+        <b>La polifonia è democrazia musicale</b>, in un certo senso.
+
+        Ma c'è un problema. <b>Il Concilio di Trento</b>, tra il 1545 e il 1563,
+        si preoccupa: nelle chiese si canta polifonia così complessa
+        che le parole del testo sacro non si capiscono più.
+        I padri conciliari minacciano di abolire la polifonia dalla liturgia.
+        Secondo la leggenda — che è probabilmente solo una leggenda,
+        ma bellissima — Palestrina compone la Missa Papae Marcelli
+        per dimostrare che si può fare polifonia a sei voci
+        mantenendo il testo perfettamente comprensibile. E la polifonia viene salvata.
+      </aside>
+    </section>
+
+    <section>
+      <h2>Palestrina — Missa Papae Marcelli</h2>
+      <ul>
+        <li>Composta ~<span class="accent">1562</span>,<br>pubblicata nel 1567</li>
+        <li>6 voci, a cappella</li>
+        <li>Il Kyrie ha una forma <span class="accent">ABA</span>:<br>
+          <em>Kyrie — Christe — Kyrie</em></li>
+        <li>Ogni voce entra con lo stesso motivo<br>(<span class="accent">imitazione</span>), poi si sviluppa</li>
+      </ul>
+      <aside class="notes">
+        La Missa Papae Marcelli è dedicata a Papa Marcello II,
+        che regnò solo 22 giorni nel 1555 — uno dei pontificati più brevi della storia.
+        Palestrina la pubblica nel 1567.
+
+        <b>Il Kyrie che ascolteremo ha una struttura che è importante capire</b>
+        perché la ritroveremo spesso: la forma <b>ABA</b>.
+        A sta per Kyrie eleison — "Signore, pietà".
+        B sta per Christe eleison — "Cristo, pietà".
+        Poi si torna ad A: di nuovo Kyrie eleison.
+
+        È una struttura tripartita semplicissima: A, B, A.
+        <b>Partenza, contrasto, ritorno.</b> La ritroverete in tantissima musica,
+        fino ai nostri giorni.
+
+        Nel primo Kyrie le sei voci entrano una dopo l'altra,
+        ognuna riprendendo lo stesso motivo melodico — questo si chiama
+        <b>imitazione</b>. È come se una persona dicesse una frase
+        e le altre la ripetessero, una alla volta, creando un intreccio.
+        Nel Christe la texture si alleggerisce — meno voci, più trasparenza.
+        Nel Kyrie finale torna tutta la densità delle sei voci.
+
+        Ascoltate soprattutto come, nonostante sei voci cantino cose diverse,
+        la parola "Kyrie eleison" resta sempre comprensibile.
+        Questa era la sfida di Palestrina, e la vince in modo magistrale.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Palestrina</span> — Missa Papae Marcelli, Kyrie
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/SM5jUpclFgk?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Ascoltiamo il Kyrie.</b> Confrontatelo mentalmente con il Veni Creator Spiritus
+        che abbiamo appena sentito: là c'era una sola voce, qui ce ne sono sei.
+        Il salto è enorme.
+
+        Fate attenzione all'entrata delle voci: non partono tutte insieme,
+        entrano una alla volta, come persone che si uniscono a una conversazione.
+        Prima una voce sola, poi una seconda che riprende la stessa melodia,
+        poi una terza, e così via. Ogni voce è indipendente, ha la sua linea,
+        ma tutte si incastrano in un ordine superiore.
+
+        Provate anche a sentire il passaggio dal Kyrie al Christe:
+        la densità sonora si alleggerisce, come se si aprisse una finestra.
+        Poi torna il Kyrie finale, e la pienezza ritorna.
+        <b>A — B — A. Questa è la forma.</b>
+      </aside>
+    </section>
+
+    <section class="reflection">
+      <h3 style="color: var(--accent);">Riflessione</h3>
+      <div class="gold-line"></div>
+      <p>
+        La forma rinascimentale è <span class="accent">reticolare</span>:<br>
+        un tessuto di voci che si intrecciano.<br><br>
+        <span class="accent">Armonia sociale</span>:<br>
+        molte voci, un unico ordine.
+      </p>
+      <aside class="notes">
+        <b>Pensate alla differenza con il Medioevo:</b> là una sola voce,
+        qui sei voci indipendenti. Là uniformità, qui pluralità.
+        Ma una pluralità ordinata: le voci non fanno ciascuna per conto suo,
+        si rispettano, si ascoltano, si intrecciano secondo regole precise.
+
+        È la grande utopia dell'umanesimo rinascimentale: individui diversi
+        che convivono in armonia. Una sorta di democrazia musicale
+        ante litteram. <b>La forma reticolare</b> — questo tessuto di voci
+        che si intrecciano — è il riflesso sonoro di una società
+        che crede nell'ordine e nella proporzione.
+
+        Con il Barocco, tutto cambierà: dalla democrazia delle voci
+        passeremo alla direzione unica, alla tensione, al dramma.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       5. BAROCCO
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/6/6a/Johann_Sebastian_Bach.jpg"
+             data-background-opacity="0.12" data-background-size="contain" data-background-position="right">
+      <div class="section-number">Parte V &middot; Barocco</div>
+      <h2>La direzionalità tonale</h2>
+      <div class="epoch-bar" style="background: #3a2a4a;"></div>
+      <div class="section-subtitle">Tensione, risoluzione, affetti</div>
+    </section>
+
+    <section>
+      <h2>Il sistema tonale</h2>
+      <ul>
+        <li>Nasce la <span class="accent">tonalità</span>:<br>tonica → dominante → tonica</li>
+        <li>Tensione → risoluzione:<br>la musica ha una <span class="accent">direzione</span></li>
+        <li>L'<span class="accent">Affektenlehre</span>:<br>ogni brano esprime un affetto preciso</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Bach — Brandeburghese n. 3</h2>
+      <ul>
+        <li>Composto <span class="accent">1721</span>, dedicato al<br>Margravio di Brandeburgo</li>
+        <li>Forma a <span class="accent">ritornello</span>: un tema<br>ritorna fra episodi contrastanti</li>
+        <li>9 archi divisi in 3 gruppi di 3:<br>una conversazione fra <span class="accent">pari</span></li>
+      </ul>
+      <aside class="notes">
+        <b>Siamo nel 1721.</b> Bach ha 36 anni e lavora come Kapellmeister — direttore musicale —
+        alla corte del principe Leopold di Köthen. È uno dei periodi più felici
+        della sua vita: il principe ama la musica, gli dà libertà, ha un'ottima orchestra.
+
+        Bach raccoglie sei concerti e li dedica al Margravio Cristiano Ludovico
+        di Brandeburgo, sperando forse in un incarico. La storia ci dice
+        che <b>il Margravio non rispose mai.</b> Non li fece nemmeno eseguire.
+        Alla sua morte, il manoscritto fu venduto all'asta per 24 groschen —
+        il prezzo della carta. Uno dei più grandi capolavori della musica occidentale,
+        buttato via come carta straccia.
+
+        Il Concerto n. 3 è scritto per soli archi: 3 violini, 3 viole, 3 violoncelli,
+        più il basso continuo. Tre gruppi di tre — una simmetria perfetta.
+        La forma è il <b>"ritornello"</b>: c'è un tema principale, energico e riconoscibile,
+        che ritorna periodicamente. Tra un ritornello e l'altro ci sono episodi
+        dove il materiale si sviluppa, modula, passa da un gruppo all'altro.
+
+        Una curiosità: tra i due movimenti veloci, Bach scrive un Adagio
+        che consiste in soli DUE accordi. Due. Probabilmente era un invito
+        all'improvvisazione del clavicembalista, oppure una pausa teatrale
+        prima del finale travolgente.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">J.S. Bach</span> — Concerto Brandeburghese n. 3
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/qr0f6t2UbOo?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        Ascoltate questa esecuzione della Netherlands Bach Society.
+        <b>La prima cosa che colpisce è l'energia:</b> questo è un motore ritmico
+        che non si ferma mai. Confrontatelo con il canto gregoriano:
+        là non c'era pulsazione, qui la pulsazione è travolgente.
+
+        Provate a riconoscere il ritornello — il tema principale —
+        quando ritorna. È il vostro punto di riferimento nel brano,
+        come un faro. Ogni volta che lo sentite, sapete "dove siete"
+        nella struttura del pezzo. Tra un ritornello e l'altro,
+        il materiale passa da un gruppo di strumenti all'altro:
+        prima i violini, poi le viole, poi i violoncelli.
+        È una conversazione fra pari, un dialogo brillante.
+
+        Questa è la grande novità del Barocco rispetto alle epoche precedenti:
+        <b>la musica ha una direzione.</b> Va da qualche parte. Ha energia, slancio,
+        tensione che si accumula e si scarica. Il tempo non è più ciclico
+        come nel Medioevo: è direzionale. E questo cambia tutto.
+      </aside>
+    </section>
+
+    <section>
+      <h2>La fuga: pensiero in musica</h2>
+      <ul>
+        <li><span class="accent">Soggetto</span> — il tema,<br>entra da solo in una voce</li>
+        <li><span class="accent">Risposta</span> — la seconda voce<br>ripete il soggetto alla dominante</li>
+        <li><span class="accent">Episodi</span> — sviluppo,<br>modulazioni</li>
+        <li><span class="accent">Strette</span> — le voci<br>si sovrappongono: tensione massima</li>
+      </ul>
+      <aside class="notes">
+        <b>Ora parliamo della fuga</b>, che è forse la forma più affascinante
+        e più razionale di tutta la musica occidentale.
+
+        Immaginate un dibattito. Una persona presenta un argomento — il <b>soggetto</b>.
+        Poi una seconda persona riprende lo stesso argomento,
+        ma da un punto di vista diverso — la <b>risposta</b>, che di solito è
+        alla quinta, cioè cinque note più in alto. Poi entra una terza voce,
+        poi una quarta. Tutte dicono la stessa cosa, ma sfasate nel tempo.
+
+        Dopo l'esposizione, dove tutte le voci hanno presentato il soggetto,
+        vengono gli <b>episodi</b>: momenti di sviluppo, dove il materiale
+        si frammenta, si modula, si trasforma. E infine le <b>strette</b>:
+        le voci si sovrappongono sempre più strettamente,
+        il soggetto entra prima che la voce precedente abbia finito.
+        La tensione sale al massimo.
+
+        La fuga che ascolteremo è la BWV 847, in Do minore, a 3 voci.
+        Bach la scrisse nel 1722 nel Clavicembalo ben temperato,
+        che era un libro didattico composto per il figlio Wilhelm Friedemann.
+        Il sottotitolo era: "per l'utilità e l'uso della gioventù musicale
+        desiderosa di apprendere". Eppure è un capolavoro assoluto.
+        <b>Bach costruisce un intero mondo da un tema di poche note.</b>
+        Dura meno di due minuti: è un universo in miniatura.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">J.S. Bach</span> — Fuga in Do minore, BWV 847
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/CGVL5j6BEKs?start=205&end=325&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        L'interprete è Víkingur Ólafsson, pianista islandese, per Deutsche Grammophon.
+        Il video inizia con il preludio e poi arriva la fuga.
+        Noi ascoltiamo la fuga, che comincia circa a 3 minuti e 25 secondi.
+
+        <b>Fate attenzione all'inizio:</b> una voce sola, il contralto,
+        presenta il soggetto. Poche note, in Do minore, un disegno
+        che scende e risale. Poi entra il soprano — stesse note,
+        ma più in alto. Infine il basso. Tre voci, tre entrate.
+
+        Da quel momento in poi, tutto quello che sentite nasce
+        da quelle prime note. Bach non aggiunge nulla di nuovo:
+        sviluppa, trasforma, combina, inverte — ma il materiale
+        è sempre quello. È un'economia straordinaria.
+
+        Pensate alla differenza con Berlioz, che sentiremo dopo:
+        là sarà il trionfo dell'abbondanza, dell'eccesso, dell'emozione.
+        Qui è il trionfo della logica. Due modi opposti di fare musica,
+        entrambi geniali.
+      </aside>
+    </section>
+
+    <section class="reflection">
+      <h3 style="color: var(--accent);">Riflessione</h3>
+      <div class="gold-line"></div>
+      <p>
+        La forma barocca è<br>
+        <span class="accent">tensione organizzata</span>.<br><br>
+        La musica non contempla: <em>si muove</em>.<br>
+        Il tempo diventa <span class="accent">dramma</span>.
+      </p>
+      <aside class="notes">
+        Nel Barocco avviene un cambiamento fondamentale nella storia della musica:
+        nasce la <b>direzionalità</b>. Per la prima volta, la musica ha una meta.
+        C'è una tensione che si accumula e una risoluzione che la scarica.
+
+        Il sistema tonale — tonica, dominante, tonica — è come un arco narrativo:
+        si parte da casa, ci si allontana, si torna. E nel viaggio
+        c'è tensione, aspettativa, sorpresa.
+
+        Confrontate: nel canto gregoriano la musica galleggiava, senza meta.
+        Nella polifonia rinascimentale le voci si intrecciavano, ma in modo
+        relativamente statico. Nel Barocco tutto si muove, tutto ha una direzione.
+        <b>Il tempo non è più circolare: è una freccia.</b>
+
+        E la fuga è il culmine di questo pensiero: una struttura dove tutto
+        è connesso, tutto è logica, tutto è tensione organizzata.
+        Bach ne è il maestro supremo.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       6. CLASSICISMO
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/1/1e/Wolfgang-amadeus-mozart_1.jpg"
+             data-background-opacity="0.12" data-background-size="contain" data-background-position="right">
+      <div class="section-number">Parte VI &middot; Classicismo</div>
+      <h2>Forma sonata<br>e dialettica</h2>
+      <div class="epoch-bar" style="background: #2a3a5a;"></div>
+      <div class="section-subtitle">Illuminismo, ragione, simmetria</div>
+    </section>
+
+    <section>
+      <h2>La forma sonata</h2>
+      <div class="sonata-diagram">
+        <div class="sonata-section sonata-expo">
+          <span class="section-title">Esposizione</span>
+          <span class="section-detail">Tema 1 → Ponte → Tema 2</span>
+        </div>
+        <div class="sonata-section sonata-dev">
+          <span class="section-title">Sviluppo</span>
+          <span class="section-detail">Conflitto</span>
+        </div>
+        <div class="sonata-section sonata-recap">
+          <span class="section-title">Ripresa</span>
+          <span class="section-detail">Tema 1 → Tema 2 (in tonica)</span>
+        </div>
+        <div class="sonata-section sonata-coda">
+          <span class="section-title">Coda</span>
+          <span class="section-detail">Fine</span>
+        </div>
+      </div>
+      <p class="fragment" style="margin-top: 0.5em;">
+        <span class="accent">Stabilità</span> → <span class="accent">crisi</span> → <span class="accent">risoluzione</span>
+      </p>
+      <aside class="notes">
+        <b>Eccoci nel Classicismo</b> — la seconda metà del Settecento.
+        Mozart, Haydn, il giovane Beethoven. È l'epoca dell'Illuminismo,
+        della ragione, della simmetria. E la forma musicale riflette
+        perfettamente questa mentalità.
+
+        La forma sonata è lo schema fondamentale. Guardatela come
+        un racconto in tre atti.
+
+        <b>Primo atto: l'esposizione.</b> Si presentano due temi,
+        in due tonalità diverse. Il primo tema è nella tonalità "di casa" —
+        ad esempio Do maggiore. Il secondo tema è in una tonalità diversa —
+        ad esempio Sol maggiore. C'è un contrasto, una tensione
+        tra le due tonalità. Tra i due temi c'è un ponte che li collega.
+
+        <b>Secondo atto: lo sviluppo.</b> Qui i temi si frammentano,
+        si mescolano, si modulano — cioè passano attraverso tonalità diverse,
+        lontane. È il momento del conflitto, dell'instabilità.
+        Non sappiamo dove siamo, non sappiamo dove andremo.
+
+        <b>Terzo atto: la ripresa.</b> I due temi tornano, ma questa volta
+        sono entrambi nella tonalità di partenza. Il conflitto è risolto.
+        L'equilibrio è ristabilito. Poi la coda chiude tutto.
+
+        <b>Stabilità — crisi — risoluzione.</b> È una dialettica,
+        quasi pre-hegeliana: tesi, antitesi, sintesi.
+        La forma sonata è il modo in cui l'Illuminismo pensa la musica.
+      </aside>
+    </section>
+
+    <section>
+      <h2>Mozart — Sonata K. 545</h2>
+      <ul>
+        <li>Scritta il <span class="accent">26 giugno 1788</span>,<br>anno delle ultime tre sinfonie</li>
+        <li>Mozart la chiama<br>«<span class="accent">Sonata facile per principianti</span>»</li>
+        <li>In realtà: forma sonata<br><span class="accent">perfetta</span>, nulla di superfluo</li>
+      </ul>
+      <aside class="notes">
+        <b>Mozart scrive questa sonata il 26 giugno 1788.</b> Ha 32 anni,
+        gli restano tre anni di vita — morirà nel dicembre 1791.
+        È lo stesso anno delle ultime tre sinfonie, le più grandi.
+
+        La chiama lui stesso <b>"Sonata facile per principianti"</b> —
+        Sonata semplice. E in effetti la tecnica pianistica è accessibile,
+        si può suonare dopo pochi anni di studio. Ma la struttura formale
+        è perfetta, da manuale. Non c'è una nota di troppo.
+
+        Il primo tema lo conoscete tutti — è quella famosa scala ascendente
+        in Do maggiore, con il basso albertino sotto: Do-Sol-Mi-Sol,
+        Do-Sol-Mi-Sol. Sembra semplice, ma provate a scrivere
+        qualcosa di altrettanto memorabile con una scala. È genio puro.
+
+        Poi c'è il ponte che modula a Sol maggiore, e il secondo tema,
+        più cantabile, più dolce. Lo sviluppo è breve ma denso.
+        La ripresa riporta tutto in Do maggiore.
+
+        Questa sonata è l'esempio ideale di come il Classicismo
+        pensi la musica: chiarezza, equilibrio, proporzione.
+        Ogni elemento è al suo posto. Nulla è eccessivo.
+        È la musica come architettura razionale.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">W.A. Mozart</span> — Sonata K. 545, I movimento
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/I_AX4R-d29o?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Ascoltate l'inizio:</b> riconoscerete subito la scala ascendente —
+        è uno degli inizi più famosi di tutta la musica per pianoforte.
+        Sotto, la mano sinistra fa il basso albertino: Do-Sol-Mi-Sol,
+        sempre uguale, come un orologio. La regolarità stessa.
+
+        Poi arriva il ponte — sentite che qualcosa cambia,
+        la musica si muove verso un'altra zona. E il secondo tema
+        è più cantabile, più dolce, più melodico.
+
+        Confrontate mentalmente con quello che verrà dopo,
+        con Berlioz: là la melodia sarà lunga, sinuosa, asimmetrica,
+        emotiva. Qui è tutto quadrato, bilanciato, prevedibile
+        nel senso più nobile del termine. La bellezza sta nella perfezione
+        della proporzione, non nella sorpresa.
+      </aside>
+    </section>
+
+    <section class="reflection">
+      <h3 style="color: var(--accent);">Riflessione</h3>
+      <div class="gold-line"></div>
+      <p>
+        La forma sonata è la<br>
+        <span class="accent">misura razionale del tempo</span>.<br><br>
+        Come l'Illuminismo misura il mondo,<br>
+        il Classicismo misura la musica.
+      </p>
+      <aside class="notes">
+        <b>La forma sonata è il grande contributo del Classicismo alla musica.</b>
+        È uno schema che funziona così bene che verrà usato per più di un secolo —
+        da Haydn fino a Brahms e oltre.
+
+        Perché funziona? Perché replica un'esperienza universale:
+        <b>stabilità, crisi, risoluzione.</b> Lo facciamo tutti i giorni:
+        siamo tranquilli, succede qualcosa che ci sconvolge,
+        troviamo un modo per tornare in equilibrio. La forma sonata
+        fa esattamente questo, in musica.
+
+        Ma adesso arriva qualcuno che dirà: l'equilibrio non mi basta.
+        Voglio esprimere le mie emozioni, il mio tormento, la mia ossessione.
+        Arriva il Romanticismo, e con esso il primo grande ribelle della forma.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       7. ROMANTICISMO
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
+             data-background-opacity="0.18" data-background-size="cover">
+      <div class="section-number">Parte VII &middot; Romanticismo</div>
+      <h2>Espansione<br>e soggettività</h2>
+      <div class="epoch-bar" style="background: #5a2a3a;"></div>
+      <div class="section-subtitle">Rottura, autobiografia, musica a programma</div>
+    </section>
+
+    <section>
+      <h2>Il Romanticismo rompe la forma</h2>
+      <ul>
+        <li>Beethoven: la forma sonata<br>diventa <span class="accent">conflitto esistenziale</span></li>
+        <li>La musica <span class="accent">a programma</span>:<br>la sinfonia racconta una storia</li>
+        <li>La forma non è più un contenitore:<br>è <span class="accent">l'espressione stessa</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="split-slide">
+        <div class="split-text">
+          <h2 style="font-size: 1.4em;">Berlioz — Symphonie fantastique</h2>
+          <ul style="font-size: 0.85em;">
+            <li>Composta nel <span class="accent">1830</span>,<br>Berlioz ha 26 anni</li>
+            <li>Ossessione per l'attrice<br><span class="accent">Harriet Smithson</span></li>
+            <li>5 movimenti: un sogno<br>sotto effetto dell'oppio</li>
+            <li>L'<span class="accent">idée fixe</span>: un tema<br>che ritorna trasformato</li>
+          </ul>
+        </div>
+        <div class="split-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Hector_Berlioz.jpg"
+               alt="Hector Berlioz">
+          <div class="img-attr">Berlioz, 1850 ca.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        <b>Ora entriamo nel Romanticismo</b>, e la storia che sto per raccontarvi
+        è una delle più pazze della storia della musica.
+
+        <b>11 settembre 1827. Parigi.</b> Un giovane compositore francese di 23 anni,
+        Hector Berlioz, va a teatro a vedere l'Amleto di Shakespeare.
+        Sul palco c'è un'attrice irlandese, Harriet Smithson, nel ruolo di Ofelia.
+        Berlioz perde completamente la testa. Si innamora follemente,
+        le scrive lettere disperate, la insegue. Lei non lo conosce,
+        non gli risponde, lo trova probabilmente inquietante.
+
+        Berlioz fa l'unica cosa che un compositore romantico può fare:
+        scrive una sinfonia. Ma non una sinfonia qualsiasi.
+        Scrive un programma autobiografico: un giovane artista si avvelena
+        con l'oppio per amore e ha una serie di visioni allucinate.
+        Cinque movimenti, cinque scene del suo delirio.
+
+        E inventa una tecnica rivoluzionaria: l'<b>idée fixe</b>, l'idea fissa.
+        Una melodia lunga e sinuosa che rappresenta la donna amata
+        e ritorna in ogni movimento, trasformata secondo la situazione.
+        Nel primo movimento è dolce, sognante. Nel secondo è un valzer elegante.
+        Nel terzo è pastorale. Nel quarto viene spezzata dalla ghigliottina —
+        l'artista sogna di essere condannato a morte. Nel quinto è grottesca,
+        deformata, in un sabba di streghe.
+
+        La prima esecuzione è il 5 dicembre 1830. Harriet non c'è.
+        Ma nel 1832 assiste a una seconda esecuzione, capisce che è lei
+        il soggetto di quella musica ossessiva — e lo sposa.
+        Il matrimonio sarà un disastro, ma questa è un'altra storia.
+      </aside>
+    </section>
+
+    <section>
+      <h2>I 5 movimenti</h2>
+      <ul style="font-size: 0.85em;">
+        <li>I. <span class="accent">Rêveries — Passions</span></li>
+        <li>II. <span class="accent">Un bal</span> — un valzer</li>
+        <li>III. <span class="accent">Scène aux champs</span></li>
+        <li>IV. <span class="accent">Marche au supplice</span> — la ghigliottina</li>
+        <li>V. <span class="accent">Songe d'une nuit du Sabbat</span> —<br>
+          cita il <em>Dies Irae</em> gregoriano!</li>
+      </ul>
+      <aside class="notes">
+        <b>Guardate i cinque movimenti.</b> Il primo — Rêveries, Passions —
+        è quello che ascolteremo: sogni e passioni, l'innamoramento.
+
+        Il secondo è un ballo: l'artista vede la donna amata a un ballo
+        e l'idée fixe appare dentro un valzer.
+
+        Il terzo è una scena in campagna, pastorale, con due pastori
+        che si rispondono col flauto — ma l'ossessione amorosa rovina tutto.
+
+        Il quarto è terrificante: l'artista sogna di aver ucciso la donna amata
+        e viene condotto alla ghigliottina. Marcia funebre. Il colpo cade.
+        L'idée fixe appare per un istante — poi silenzio.
+
+        Il quinto è il sabba delle streghe. E qui Berlioz fa una cosa geniale:
+        cita il Dies Irae, il canto gregoriano dei morti, suonato dai tuba
+        e dalle campane. La melodia medievale che tutti conoscevano —
+        la sequenza della messa dei defunti — viene trasformata in qualcosa
+        di grottesco e spaventoso. L'idée fixe ritorna stravolta,
+        quasi irriconoscibile. È un colpo di genio teatrale.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Berlioz</span> — Symphonie fantastique, I mov.
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/0Zim4GW-FWo?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Ascoltiamo il primo movimento:</b> Rêveries — Passions, sogni e passioni.
+
+        Inizia con un'introduzione lenta e sognante — l'artista è solo
+        con i suoi pensieri, prima di incontrare la donna amata.
+        Poi arriva l'idée fixe: una melodia lunga, sinuosa, che dura
+        ben 40 battute. Quaranta! Confrontatela mentalmente con il tema
+        di Mozart: là erano 8 battute, simmetriche, quadrate.
+        Qui sono 40 battute che fluttuano, salgono, scendono,
+        si riprendono — è un flusso emotivo, non un'architettura.
+
+        Questa differenza dice tutto sul passaggio dal Classicismo
+        al Romanticismo. <b>Mozart costruisce. Berlioz confessa.</b>
+        La forma non è più un contenitore razionale:
+        è l'espressione stessa dell'emozione. La musica non racconta
+        una storia astratta di tonalità — racconta la vita di un uomo,
+        i suoi sogni, le sue ossessioni, il suo dolore.
+      </aside>
+    </section>
+
+    <section class="reflection">
+      <h3 style="color: var(--accent);">Riflessione</h3>
+      <div class="gold-line"></div>
+      <p>
+        La forma romantica<br>è <span class="accent">interiorità</span>.<br><br>
+        Il tempo diventa soggettivo,<br>
+        la musica diventa<br><span class="accent">autobiografia</span>.
+      </p>
+      <aside class="notes">
+        <b>Con il Romanticismo</b> la musica smette di essere un gioco astratto
+        di tonalità e diventa confessione personale. Berlioz non scrive
+        "una sinfonia in Do maggiore" — scrive la sua storia d'amore,
+        il suo dolore, le sue allucinazioni.
+
+        <b>Il tempo musicale diventa soggettivo:</b> non segue più un orologio
+        razionale, ma l'emozione del momento. Una frase si allunga
+        perché l'emozione lo richiede. Un silenzio si dilata
+        perché il dramma lo impone.
+
+        Dopo Berlioz, la musica non tornerà mai completamente
+        alla razionalità del Classicismo. Il genio è uscito dalla bottiglia.
+        Ma ora ci chiediamo: se la forma si è allargata fino a questo punto,
+        cosa succede quando si va ancora più in là?
+        Debussy ci darà la risposta: la forma si dissolve.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       8. IMPRESSIONISMO — Debussy
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/f/f9/Claude_Debussy_ca_1908%2C_foto_av_F%C3%A9lix_Nadar.jpg"
+             data-background-opacity="0.10" data-background-size="contain" data-background-position="right">
+      <div class="section-number">Parte VIII &middot; Impressionismo</div>
+      <h2>La forma<br>si dissolve nel colore</h2>
+      <div class="epoch-bar" style="background: #3a5a5a;"></div>
+      <div class="section-subtitle">Debussy, atmosfera, timbro</div>
+    </section>
+
+    <section>
+      <h2>Debussy — Prélude à<br>l'après-midi d'un faune</h2>
+      <ul>
+        <li>Composto nel <span class="accent">1894</span></li>
+        <li>Boulez: «l'inizio della<br><span class="accent">musica moderna</span>»</li>
+        <li>Nessun sviluppo classico:<br>solo <span class="accent">colore e atmosfera</span></li>
+        <li>Il tempo si <span class="accent">sospende</span></li>
+      </ul>
+      <aside class="notes">
+        <b>Facciamo un altro salto. Siamo nel 1894.</b> Claude Debussy ha 32 anni
+        e compone un brano ispirato a un poema simbolista di Stéphane Mallarmé:
+        L'après-midi d'un faune — il pomeriggio di un fauno.
+
+        Il soggetto: un fauno — creatura mitologica, metà uomo metà capra —
+        sonnecchia in un pomeriggio estivo. Fa caldo. Tutto è immobile.
+        Il fauno sogna ninfe, si sveglia, si riaddormenta.
+        Non succede niente, nel senso tradizionale. Non c'è un dramma,
+        non c'è un conflitto, non c'è una risoluzione.
+
+        E la musica riflette esattamente questo. Il flauto solo all'inizio
+        suona una melodia cromatica che fluttua senza una pulsazione chiara.
+        Non c'è un "uno-due-tre-quattro". Il tempo è sospeso.
+
+        <b>Debussy non "sviluppa" i temi come faceva Beethoven.</b>
+        Li fa apparire, dissolversi, riapparire leggermente diversi.
+        Gli accordi non vanno da nessuna parte: non c'è una tensione
+        che si risolve. Gli accordi esistono per il loro colore sonoro,
+        per la loro bellezza istantanea, senza bisogno di una meta.
+
+        C'è una struttura — un vago ABA — ma i confini sono sfumati
+        deliberatamente. È come un quadro impressionista: i contorni
+        si dissolvono, resta solo il colore, la luce, l'atmosfera.
+
+        <b>Pierre Boulez</b>, uno dei più grandi direttori e compositori
+        del Novecento, disse che <b>questo brano segna l'inizio della musica moderna.</b>
+        Dopo Debussy, nulla sarà più come prima.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Debussy</span> — Prélude à l'après-midi d'un faune
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/5raA6cl3DLg?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Ascoltate il flauto solo all'inizio.</b> Sentite come ondeggia,
+        come scivola tra le note cromatiche senza una direzione precisa.
+        Non c'è pulsazione regolare, non c'è urgenza. Il suono esiste
+        e basta, come la luce del pomeriggio.
+
+        Poi entrate gli archi, morbidissimi, e l'arpa. Tutto è sfumato,
+        tutto è colore. Confrontatelo con il Brandeburghese di Bach:
+        là c'erano energia, direzione, un motore ritmico inarrestabile.
+        Qui c'è sospensione, galleggiamento, tempo fermo.
+
+        La forma si è dissolta. E con essa, un intero modo di pensare la musica.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       9. ATONALITÀ — Schoenberg
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Arnold_Schonberg_%28i.e._Schoenberg%29%2C_compositeur_autrichien_%28CN%29_-_btv1b53141950j.jpg/1280px-Arnold_Schonberg_%28i.e._Schoenberg%29%2C_compositeur_autrichien_%28CN%29_-_btv1b53141950j.jpg"
+             data-background-opacity="0.10" data-background-size="contain" data-background-position="right">
+      <div class="section-number">Parte IX &middot; Atonalità</div>
+      <h2>La tonalità muore</h2>
+      <div class="epoch-bar" style="background: #4a4a4a;"></div>
+      <div class="section-subtitle">Schoenberg, dodecafonia, emancipazione della dissonanza</div>
+    </section>
+
+    <section>
+      <h2>Schoenberg — Op. 11 n. 1</h2>
+      <ul>
+        <li><span class="accent">1909</span>: il primo brano<br>completamente atonale</li>
+        <li>Nessuna tonalità "di casa":<br>la musica fluttua nel vuoto</li>
+        <li>La forma tiene insieme<br>grazie a <span class="accent">motivi</span>, non a tonalità</li>
+      </ul>
+      <aside class="notes">
+        <b>Siamo nel febbraio 1909, a Vienna.</b> Arnold Schoenberg ha 34 anni
+        ed è in piena crisi — personale, artistica, esistenziale.
+        La sua moglie lo ha appena lasciato per un pittore.
+        E lui compone i Tre pezzi per pianoforte Op. 11,
+        <b>il primo brano della storia completamente atonale.</b>
+
+        <b>Cosa vuol dire atonale?</b> Vuol dire che non c'è più una tonalità,
+        non c'è più una "casa" armonica. In tutta la musica che abbiamo sentito
+        finora — da Palestrina a Debussy — c'era sempre un centro di gravità:
+        Do maggiore, Sol minore, Fa maggiore. Un punto di partenza
+        e di arrivo. Schoenberg elimina tutto questo. La musica fluttua
+        nel vuoto, senza un centro, senza una direzione tonale.
+
+        Ma attenzione: la forma c'è ancora. Non è caos.
+        Una cellula di tre note — Si, Sol diesis, Sol — è il DNA dell'intero pezzo.
+        Tutto nasce da lì. La coerenza non viene più dalla tonalità
+        ma dai motivi, dalle relazioni tra le note.
+
+        Da qui alla dodecafonia il passo è breve: tra il 1921 e il 1923
+        Schoenberg codifica il <b>metodo dei dodici toni</b> — una serie fissa
+        di tutte le 12 note cromatiche, usata in tutte le permutazioni possibili.
+        È un nuovo modo di organizzare i suoni, radicalmente diverso
+        dalla tonalità che aveva regnato per tre secoli.
+
+        Ma oggi non ascoltiamo l'Op. 11 — vi faccio sentire invece
+        Verklärte Nacht, la Notte trasfigurata. È un'opera giovanile,
+        del 1899, ancora tonale ma già al limite. Vi farà capire
+        da dove viene Schoenberg e verso dove sta andando.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Schoenberg</span> — Verklärte Nacht (Notte trasfigurata)
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/5h5Xc-rUef4?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Verklärte Nacht, 1899:</b> Schoenberg ha 25 anni. È ancora dentro
+        il tardo Romanticismo — sentirete Wagner, sentirete Brahms.
+        Ma il cromatismo è così intenso che la tonalità scricchiola.
+
+        Il brano racconta una poesia di Richard Dehmel: una coppia
+        cammina di notte in un bosco. La donna confessa di aspettare
+        un figlio da un altro uomo. L'uomo la accoglie, la perdona,
+        la notte si trasfigura — diventa luminosa.
+
+        Ascoltate gli archi: sentite come il cromatismo
+        crea un mondo sonoro instabile, inquieto, che non si posa mai.
+        Le armonie scivolano una nell'altra senza risolvere.
+        È ancora tonale, ma come un edificio che traballa.
+        In dieci anni, questo edificio crollerà completamente
+        e nascerà l'atonalità.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       10. PRIMITIVISMO — Stravinsky
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/6/62/Roerich_Rite_of_Spring.jpg"
+             data-background-opacity="0.18" data-background-size="cover">
+      <div class="section-number">Parte X &middot; Primitivismo</div>
+      <h2>Il ritmo come struttura</h2>
+      <div class="epoch-bar" style="background: #5a4a2a;"></div>
+      <div class="section-subtitle">Stravinsky, Le Sacre du printemps, 1913</div>
+    </section>
+
+    <section>
+      <div class="split-slide">
+        <div class="split-text">
+          <h2 style="font-size: 1.3em;">La Sagra della Primavera</h2>
+          <ul style="font-size: 0.85em;">
+            <li><span class="accent">29 maggio 1913</span>, Parigi:<br>scoppia una rivolta in sala</li>
+            <li>Rituale pagano: una ragazza<br>danza fino alla morte</li>
+            <li>Il <span class="accent">ritmo</span> diventa<br>il protagonista assoluto</li>
+            <li>Metri irregolari:<br>2/4, 3/4, 5/8, 7/4...</li>
+          </ul>
+        </div>
+        <div class="split-image">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Igor_Stravinsky_LOC_32392u.jpg/1280px-Igor_Stravinsky_LOC_32392u.jpg"
+               alt="Igor Stravinsky" style="max-height: 500px;">
+          <div class="img-attr">Stravinsky, 1920 ca.</div>
+        </div>
+      </div>
+      <aside class="notes">
+        <b>29 maggio 1913. Parigi.</b> Théâtre des Champs-Élysées.
+        Si alza il sipario su Le Sacre du printemps, con la coreografia
+        di Vaslav Nijinsky e la musica di Igor Stravinsky.
+
+        <b>Scoppia un putiferio.</b> Il pubblico urla, fischia, litiga.
+        Quelli che cercano di ascoltare si azzuffano con quelli che protestano.
+        Arrivano i gendarmi. Nijinsky deve salire su una sedia dietro le quinte
+        e gridare i tempi ai ballerini perché non sentono più l'orchestra
+        dal chiasso in sala. Stravinsky scappa dal teatro.
+
+        Perché tanto scandalo? Perché Stravinsky fa qualcosa che nessuno
+        aveva mai fatto: <b>il ritmo diventa il protagonista assoluto della musica.</b>
+        Non la melodia, non l'armonia — il ritmo.
+
+        Pensate a tutta la musica che abbiamo sentito finora:
+        il ritmo era sempre regolare, prevedibile, organizzato in battute.
+        Stravinsky distrugge tutto questo. <b>I metri cambiano ogni battuta:</b>
+        2/4, 3/4, 5/8, 7/4, 3/8... Gli accenti cadono dove non te li aspetti.
+        È un terremoto ritmico.
+
+        Il famoso accordo degli "Auguri primaverili" è un accordo dissonante
+        martellato dagli archi con accenti imprevedibili. Non è la mente
+        che organizza la forma: è il corpo, l'istinto, la pulsione ritmica.
+
+        Il soggetto del balletto è un rituale pagano della Russia antica:
+        una ragazza viene scelta per danzare fino alla morte,
+        come sacrificio alla primavera. Musica primitiva, violenta, viscerale.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Stravinsky</span> — La Sagra della Primavera
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/EkwqPJZe8ms?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>L'esecuzione è della London Symphony Orchestra</b> diretta da Simon Rattle.
+
+        L'inizio è celeberrimo: un fagotto solo nel registro più acuto possibile,
+        quasi stridulo. Suona una melodia popolare lituana, ma stravolta,
+        quasi irriconoscibile. Sembra un suono antico, primordiale,
+        un richiamo da un tempo prima della civiltà.
+
+        Poi, poco a poco, si aggiungono altri strumenti — clarinetto,
+        corno inglese — come voci che si svegliano da un sonno ancestrale.
+        L'effetto è di una natura che si risveglia, ma una natura
+        selvatica, inquietante, non il giardino ordinato del Classicismo.
+
+        Se arriviamo agli Auguri primaverili, sentite quell'accordo
+        martellato con violenza dagli archi. Provate a prevedere
+        gli accenti: non ci riuscirete. Cadono in punti sempre diversi.
+        È questo che sconvolse il pubblico del 1913: la perdita del controllo
+        ritmico, il ritorno a qualcosa di primitivo e ingovernabile.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       11. IL SILENZIO — Cage
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/John_Cage_%281988%29.jpg/1280px-John_Cage_%281988%29.jpg"
+             data-background-opacity="0.10" data-background-size="contain" data-background-position="right">
+      <div class="section-number">Parte XI</div>
+      <h2>4'33"</h2>
+      <div class="epoch-bar" style="background: #555;"></div>
+      <div class="section-subtitle">John Cage, il silenzio, 1952</div>
+    </section>
+
+    <section>
+      <h2>John Cage — 4'33"</h2>
+      <ul>
+        <li><span class="accent">1952</span>: un pianista siede<br>al pianoforte e non suona nulla</li>
+        <li>3 movimenti di <span class="accent">silenzio</span></li>
+        <li>Ma il silenzio non esiste:<br>la musica è ciò che<br><span class="accent">ascoltiamo</span></li>
+      </ul>
+      <aside class="notes">
+        <b>29 agosto 1952. Woodstock</b>, stato di New York — non il festival rock,
+        un altro luogo, una sala da concerti all'aperto.
+        Il pianista David Tudor si siede al pianoforte con un cronometro.
+        Apre il coperchio del pianoforte. Aspetta 30 secondi. Chiude il coperchio.
+        Lo riapre. Aspetta 2 minuti e 23 secondi. Chiude.
+        Lo riapre. Aspetta 1 minuto e 40 secondi. Chiude. Si alza. Fine.
+
+        <b>Non ha suonato una singola nota.</b> Il pezzo si chiama 4'33" —
+        quattro minuti e trentatré secondi di silenzio.
+        Ma Cage vi direbbe: non di silenzio.
+
+        Poco prima, Cage aveva visitato la camera anecoica dell'Università di Harvard —
+        una stanza progettata per il silenzio assoluto, dove non entra
+        nessun suono dall'esterno. Cage ci entra aspettandosi il silenzio totale.
+        Invece sente due suoni: uno acuto e uno grave.
+        L'ingegnere gli spiega: quello acuto è il suo sistema nervoso,
+        quello grave è il suo sangue che circola.
+
+        Cage ne deduce una cosa radicale: il silenzio non esiste.
+        Finché siamo vivi, c'è sempre suono. E se il silenzio non esiste,
+        allora <b>la musica non è creare suoni — è l'atto di ascoltare.</b>
+
+        4'33" non è uno scherzo. È una domanda filosofica profondissima:
+        cos'è la musica? Dove finisce il suono e comincia il silenzio?
+        Chi decide cosa è musica e cosa no?
+
+        Vi chiedo: secondo voi, è ancora musica?
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Cage</span> — 4'33" (Berliner Philharmoniker)
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/AWVUp12XPpU?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Questo è il video dei Berliner Philharmoniker</b> diretti da Kirill Petrenko.
+        Un'intera orchestra — ottanta musicisti — seduti in silenzio.
+        L'impatto visivo è fortissimo: tutti quegli strumenti,
+        tutta quella potenza sonora, e nessuno suona.
+
+        Ascoltate cosa c'è invece del silenzio: tosse, sedie che scricchiolano,
+        l'impianto di ventilazione, il pubblico che si agita, qualcuno
+        che ride nervosamente. Questi suoni SONO il brano.
+        La sala da concerto diventa lo strumento.
+
+        Dopo Cage, il confine della musica si è spostato per sempre.
+        Non tornerà mai indietro.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       12. MINIMALISMO — Glass
+       ============================================================ -->
+  <section>
+    <section class="section-header"
+             data-background-image="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Philip_Glass_in_Florence%2C_Italy_-_1993.jpg/1280px-Philip_Glass_in_Florence%2C_Italy_-_1993.jpg"
+             data-background-opacity="0.10" data-background-size="contain" data-background-position="right">
+      <div class="section-number">Parte XII &middot; Minimalismo</div>
+      <h2>La forma rinasce<br>dalla ripetizione</h2>
+      <div class="epoch-bar" style="background: #4a5a3a;"></div>
+      <div class="section-subtitle">Philip Glass, strutture ripetitive</div>
+    </section>
+
+    <section>
+      <h2>Glass — Akhnaten</h2>
+      <ul>
+        <li>Opera del <span class="accent">1984</span> sulla storia<br>del faraone Akhenaton</li>
+        <li>Cellule melodiche che si ripetono<br>con variazioni <span class="accent">impercettibili</span></li>
+        <li>Armonia consonante, ritmo ipnotico</li>
+        <li>Dopo la massima complessità:<br>ritorno alla <span class="accent">semplicità</span></li>
+      </ul>
+      <aside class="notes">
+        Dopo il silenzio di Cage e la complessità di Schoenberg,
+        negli anni Sessanta e Settanta nasce una reazione:
+        il <b>minimalismo</b>. Philip Glass ne è uno dei protagonisti,
+        insieme a Steve Reich e Terry Riley.
+
+        L'idea è semplice e radicale: <b>tornare alla consonanza,
+        al ritmo regolare, alla ripetizione.</b> Dopo decenni
+        di musica sempre più complessa, sempre più dissonante,
+        sempre più intellettuale, Glass dice: torniamo alla base.
+        Cellule melodiche brevi che si ripetono con variazioni
+        minime, quasi impercettibili. La forma nasce dalla ripetizione stessa.
+
+        Glass non ama il termine "minimalismo" — preferisce
+        "musica con strutture ripetitive". E ha ragione:
+        non è musica "minima", è musica costruita sulla ripetizione
+        come principio strutturale.
+
+        Akhnaten è la terza opera della sua trilogia dei ritratti,
+        dopo Einstein on the Beach e Satyagraha.
+        Racconta la storia del faraone Akhenaton, quello che nel XIV secolo
+        avanti Cristo impose il monoteismo in Egitto — un solo dio,
+        il dio sole Aton — e per questo fu rovesciato e cancellato dalla storia.
+
+        Due dettagli straordinari: il ruolo di Akhenaton è scritto
+        per <b>controtenore</b> — una voce maschile nell'estensione femminile,
+        eterea, quasi soprannaturale. E nell'intera opera non c'è
+        un solo violino: solo viole, violoncelli e contrabbassi.
+        Un suono scuro, profondo, ipnotico.
+
+        Se volete, potete cercare su YouTube la produzione
+        del Metropolitan di New York — è bellissima visivamente.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       13. TINTINNABULI — Pärt
+       ============================================================ -->
+  <section>
+    <section class="section-header">
+      <div class="section-number">Parte XIII</div>
+      <h2>Il cerchio si chiude</h2>
+      <div class="epoch-bar" style="background: #3a4a5a;"></div>
+      <div class="section-subtitle">Arvo Pärt, tintinnabuli, ritorno alle origini</div>
+    </section>
+
+    <section>
+      <h2>Pärt — Spiegel im Spiegel</h2>
+      <ul>
+        <li>Composto nel <span class="accent">1978</span></li>
+        <li>Dopo anni di silenzio,<br>Pärt studia il <span class="accent">canto gregoriano</span></li>
+        <li>Metodo <span class="accent">tintinnabuli</span>:<br>una melodia + un accordo, come campane</li>
+        <li>La melodia si espande<br>da una nota centrale, come un <span class="accent">respiro</span></li>
+      </ul>
+      <aside class="notes">
+        <b>Ed eccoci all'ultima tappa del nostro viaggio.</b> Arvo Pärt,
+        compositore estone, nato nel 1935.
+
+        La sua storia è emblematica. Negli anni Sessanta, da giovane,
+        esplora tutte le avanguardie: serialismo, collage, dodecafonia.
+        Poi, nel 1968, entra in un silenzio creativo totale.
+        Per otto anni non pubblica nulla. Cosa fa? Studia.
+        Studia il canto gregoriano. Studia l'organum medievale.
+        Studia la polifonia della scuola di Notre-Dame — Pérotin,
+        il XIII secolo. Studia esattamente la musica che abbiamo ascoltato
+        all'inizio della nostra lezione.
+
+        Nel 1976 riemerge con qualcosa di completamente nuovo:
+        il metodo <b>tintinnabuli</b>, che significa "piccole campane" in latino.
+        Il principio è semplicissimo: ci sono due voci.
+        Una voce melodica che si muove per gradi congiunti —
+        La, Si, Do, Re — una nota alla volta, come una scala.
+        E una voce tintinnabuli che suona solo le note dell'accordo
+        di riferimento — Do, Mi, Sol — come campanelle.
+        Le due voci procedono insieme, una passo dopo passo,
+        l'altra saltando fra le note dell'accordo. Il risultato
+        è una musica di una semplicità e una bellezza disarmanti.
+
+        Spiegel im Spiegel — "Specchio nello specchio" — è del 1978.
+        La melodia del violoncello si espande dal La centrale
+        come una spirale: prima due note, poi tre, poi quattro,
+        poi cinque... Sempre di più, come un fiore che si apre lentamente.
+        Il pianoforte arpeggia l'accordo di Fa maggiore, sempre uguale,
+        sempre pianissimo. Dall'inizio alla fine, nessun forte.
+        <b>È il ritorno alla semplicità dopo un secolo di complessità.</b>
+        E il cerchio del nostro viaggio si chiude.
+      </aside>
+    </section>
+
+    <section>
+      <div class="video-label">
+        <span class="composer">Arvo Pärt</span> — Spiegel im Spiegel
+      </div>
+      <div class="video-container">
+        <iframe
+          data-src="https://www.youtube-nocookie.com/embed/TJ6Mzvh3XCc?start=0&end=120&rel=0"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; encrypted-media"
+          allowfullscreen data-autoplay>
+        </iframe>
+      </div>
+      <aside class="notes">
+        <b>Ascoltate.</b> Il pianoforte: Do, La, Fa — l'accordo di Fa maggiore
+        arpeggiato, sempre uguale, come un rintocco di campana lontana.
+        Il violoncello entra con il La e comincia ad espandersi:
+        La-Si... pausa. La-Si-Do... pausa. La-Si-Do-Re... pausa.
+        Ogni frase un po' più lunga della precedente.
+
+        È una musica che respira. <b>Come il canto gregoriano.</b>
+        Confrontate questo con il Veni Creator Spiritus che abbiamo ascoltato
+        all'inizio della lezione: stessa semplicità, stesso respiro,
+        stessa calma profonda. Ma mille anni dopo.
+
+        Pärt è arrivato qui dopo aver attraversato tutto:
+        il serialismo, le avanguardie, il silenzio.
+        Ed è tornato al punto di partenza. Come se mille anni
+        di musica occidentale — dalla monodia alla polifonia,
+        dalla tonalità all'atonalità, dal suono al silenzio —
+        <b>fossero stati un immenso cerchio.</b> E alla fine,
+        la musica torna a essere quello che era all'inizio:
+        una voce semplice, un respiro, una preghiera.
+      </aside>
+    </section>
+  </section>
+
+
+  <!-- ============================================================
+       CONCLUSIONE
+       ============================================================ -->
+  <section>
+    <section class="section-header">
+      <div class="section-number">Conclusione</div>
+      <h2>Il viaggio della forma</h2>
+    </section>
+
+    <section>
+      <div style="display: flex; justify-content: center; gap: 0.2em; flex-wrap: wrap; max-width: 98%; margin: 0 auto;">
+        <div class="timeline-card" style="background: rgba(91,58,41,0.3); border: 1px solid rgba(91,58,41,0.5);">
+          <span class="epoch-name">Medioevo</span>
+          <span class="epoch-concept">Ciclico</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(42,74,58,0.3); border: 1px solid rgba(42,74,58,0.5);">
+          <span class="epoch-name">Rinascimento</span>
+          <span class="epoch-concept">Reticolare</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(58,42,74,0.3); border: 1px solid rgba(58,42,74,0.5);">
+          <span class="epoch-name">Barocco</span>
+          <span class="epoch-concept">Direzionale</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(42,58,90,0.3); border: 1px solid rgba(42,58,90,0.5);">
+          <span class="epoch-name">Classicismo</span>
+          <span class="epoch-concept">Razionale</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(90,42,58,0.3); border: 1px solid rgba(90,42,58,0.5);">
+          <span class="epoch-name">Romanticismo</span>
+          <span class="epoch-concept">Soggettivo</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(58,90,90,0.3); border: 1px solid rgba(58,90,90,0.5);">
+          <span class="epoch-name">Impressionismo</span>
+          <span class="epoch-concept">Dissolto</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(74,74,74,0.3); border: 1px solid rgba(74,74,74,0.5);">
+          <span class="epoch-name">Atonalità</span>
+          <span class="epoch-concept">Frantumato</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(90,74,42,0.3); border: 1px solid rgba(90,74,42,0.5);">
+          <span class="epoch-name">Primitivismo</span>
+          <span class="epoch-concept">Ritmico</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(85,85,85,0.3); border: 1px solid rgba(85,85,85,0.5);">
+          <span class="epoch-name">Cage</span>
+          <span class="epoch-concept">Silenzio</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(74,90,58,0.3); border: 1px solid rgba(74,90,58,0.5);">
+          <span class="epoch-name">Minimalismo</span>
+          <span class="epoch-concept">Ripetizione</span>
+        </div>
+        <div class="timeline-card" style="background: rgba(58,74,90,0.3); border: 1px solid rgba(58,74,90,0.5);">
+          <span class="epoch-name">Pärt</span>
+          <span class="epoch-concept">Cerchio</span>
+        </div>
+      </div>
+      <aside class="notes">
+        <b>Eccoci alla fine del nostro viaggio.</b> Guardate questa timeline:
+        undici tappe, undici modi di dare forma al tempo.
+
+        Il Medioevo: tempo ciclico, la preghiera che si ripete.
+        Il Rinascimento: tempo reticolare, le voci che si intrecciano.
+        Il Barocco: tempo direzionale, la musica che va da qualche parte.
+        Il Classicismo: tempo razionale, misurato, simmetrico.
+        Il Romanticismo: tempo soggettivo, la musica come confessione.
+        Debussy: il tempo si dissolve nel colore.
+        Schoenberg: il tempo si frantuma, perde il centro.
+        Stravinsky: il ritmo diventa protagonista, primitivo, viscerale.
+        Cage: il silenzio diventa musica.
+        Glass: la ripetizione ricostruisce una nuova forma.
+        Pärt: il cerchio si chiude, si torna alla semplicità delle origini.
+
+        Ogni volta che è cambiata la visione del mondo,
+        è cambiata la forma musicale. La musica non è solo bella:
+        è il riflesso sonoro di come l'umanità pensa se stessa.
+      </aside>
+    </section>
+
+    <section data-background-gradient="radial-gradient(ellipse at 50% 50%, #1a1520 0%, #0a0a0f 70%)">
+      <div class="key-phrase">
+        «La forma musicale è<br><span class="highlight">filosofia resa udibile</span>.»
+      </div>
+    </section>
+
+    <section>
+      <h2>Prossimamente</h2>
+      <p>
+        <span class="accent">Lezione 2</span><br>
+        <em>Approfondimenti e<br>nuovi ascolti...</em>
+      </p>
+      <div class="gold-line" style="margin-top: 0.8em;"></div>
+      <p class="dim" style="margin-top: 0.6em;">
+        Connetti con la Classica &middot; Marina Scalafiotti
+      </p>
+    </section>
+  </section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/plugin/notes/notes.js"></script>
+<script>
+  Reveal.initialize({
+    width: 1920, height: 1080,
+    margin: 0.01,
+    minScale: 0.2, maxScale: 2.0,
+    hash: true, history: true, touch: true,
+    progress: true, slideNumber: true,
+    transition: 'fade', transitionSpeed: 'slow',
+    backgroundTransition: 'fade',
+    plugins: [ RevealNotes ],
+  });
+
+  // Inline notes for iPad / no-keyboard
+  (function() {
+    // Copy aside.notes content into visible inline-notes divs
+    document.querySelectorAll('aside.notes').forEach(function(aside) {
+      var div = document.createElement('div');
+      div.className = 'inline-notes';
+      div.innerHTML = aside.innerHTML;
+      aside.parentNode.appendChild(div);
+    });
+
+    // Add toggle button
+    var btn = document.createElement('button');
+    btn.className = 'notes-toggle';
+    btn.textContent = 'N';
+    btn.title = 'Mostra/nascondi note';
+    btn.addEventListener('click', function() {
+      document.body.classList.toggle('show-notes');
+    });
+    document.body.appendChild(btn);
+
+    // Auto-show notes if ?notes=true in URL
+    if (window.location.search.indexOf('notes=true') !== -1) {
+      document.body.classList.add('show-notes');
+    }
+  })();
+</script>
+</body>
+</html>
