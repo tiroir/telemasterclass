@@ -212,18 +212,20 @@
 
     /* Timeline cards */
     .reveal .timeline-card {
-      text-align: center; flex: 1; min-width: 100px;
-      padding: 0.3em; border-radius: 8px;
+      text-align: center; flex: 1; min-width: 80px;
+      padding: 0.5em 0.2em 0.3em; border-radius: 8px;
+      overflow: visible;
     }
     .reveal .timeline-card .epoch-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 0.4em; font-weight: 600;
+      font-size: 0.35em; font-weight: 600;
       display: block;
       transform: rotate(-45deg);
+      transform-origin: center center;
       white-space: nowrap;
-      margin-bottom: 0.3em;
+      margin-bottom: 0.2em;
     }
-    .reveal .timeline-card .epoch-concept { font-size: 0.3em; color: var(--accent); margin-top: 0.1em; }
+    .reveal .timeline-card .epoch-concept { font-size: 0.28em; color: var(--accent); margin-top: 0.1em; }
 
     .reveal .img-attr { font-size: 0.2em; color: rgba(232,224,212,0.2); text-align: center; margin-top: 0.15em; }
 
@@ -1777,7 +1779,7 @@
     </section>
 
     <section>
-      <div style="display: flex; justify-content: center; gap: 0.2em; flex-wrap: wrap; max-width: 98%; margin: 0 auto;">
+      <div style="display: flex; justify-content: center; align-items: center; gap: 0.2em; flex-wrap: wrap; max-width: 98%; margin: 0.5em auto 0;">
         <div class="timeline-card" style="background: rgba(91,58,41,0.3); border: 1px solid rgba(91,58,41,0.5);">
           <span class="epoch-name">Medioevo</span>
           <span class="epoch-concept">Ciclico</span>
