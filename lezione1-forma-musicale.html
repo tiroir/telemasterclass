@@ -230,46 +230,6 @@
       .reveal-viewport { background: #1a1a2e !important; }
     }
 
-    /* Inline notes toggle (for iPad / no-keyboard) */
-    .notes-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 100;
-      background: var(--accent);
-      color: #0a0a0f;
-      border: none;
-      border-radius: 50%;
-      width: 56px;
-      height: 56px;
-      font-size: 24px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
-      opacity: 0.85;
-      transition: opacity 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-    .notes-toggle:hover { opacity: 1; }
-
-    .reveal .inline-notes {
-      display: none;
-      background: rgba(201, 169, 110, 0.08);
-      border-left: 3px solid var(--accent);
-      padding: 0.3em 0.5em;
-      margin-top: 0.4em;
-      font-size: 0.38em;
-      line-height: 1.5;
-      text-align: left;
-      max-height: 450px;
-      overflow-y: auto;
-      border-radius: 4px;
-      color: rgba(232, 224, 212, 0.85);
-    }
-    .reveal .inline-notes b { color: var(--accent); }
-
-    .show-notes .reveal .inline-notes { display: block; }
-    .show-notes .notes-toggle { background: #e8e0d4; }
   </style>
 </head>
 <body>
@@ -319,6 +279,15 @@
       <div class="section-number">Parte I</div>
       <h2>Che cos'è la forma?</h2>
       <div class="section-subtitle">L'architettura del tempo musicale</div>
+      <aside class="notes">
+        <b>Pensateci un attimo:</b> quando guardate un quadro, lo vedete tutto insieme.
+        Potete osservare un angolo, poi un altro, tornare indietro.
+        Il quadro è lì, fermo, tutto disponibile nello stesso istante.
+
+        <b>La musica no. La musica esiste solo nel tempo.</b> Non potete "vedere" una sinfonia
+        come vedete un quadro. Potete solo attraversarla, nota dopo nota, momento dopo momento.
+        Quando arrivate alla fine, l'inizio non c'è più — esiste solo nella vostra memoria.
+      </aside>
     </section>
 
     <section>
@@ -330,14 +299,6 @@
         organizziamo questo viaggio.
       </p>
       <aside class="notes">
-        <b>Pensateci un attimo:</b> quando guardate un quadro, lo vedete tutto insieme.
-        Potete osservare un angolo, poi un altro, tornare indietro.
-        Il quadro è lì, fermo, tutto disponibile nello stesso istante.
-
-        <b>La musica no. La musica esiste solo nel tempo.</b> Non potete "vedere" una sinfonia
-        come vedete un quadro. Potete solo attraversarla, nota dopo nota, momento dopo momento.
-        Quando arrivate alla fine, l'inizio non c'è più — esiste solo nella vostra memoria.
-
         E allora la domanda diventa: come si organizza questo viaggio?
         Come si dà una struttura a qualcosa che scorre e scompare?
         <b>La risposta è la forma.</b> La forma musicale è il modo in cui il compositore
@@ -376,6 +337,10 @@
         Nell'immagine vedete Sant'Agostino dipinto da Botticelli nel 1480 —
         lo studio del santo, i libri, la concentrazione. Un uomo che cerca
         di capire il tempo con le parole. I musicisti lo fanno con i suoni.
+
+        <b>Questa è la tesi centrale di tutta la lezione</b>, e vorrei che ve la portaste a casa:
+        la forma musicale non è un fatto tecnico, non è roba da addetti ai lavori.
+        È qualcosa di profondo: riflette il modo in cui una civiltà pensa il mondo.
       </aside>
     </section>
 
@@ -384,10 +349,6 @@
         La forma musicale<br><span class="highlight">riflette la visione del mondo</span><br>di ogni epoca.
       </div>
       <aside class="notes">
-        <b>Questa è la tesi centrale di tutta la lezione</b>, e vorrei che ve la portaste a casa:
-        la forma musicale non è un fatto tecnico, non è roba da addetti ai lavori.
-        È qualcosa di profondo: riflette il modo in cui una civiltà pensa il mondo.
-
         Nel Medioevo, quando il tempo era visto come ciclico e sacro,
         la musica era circolare, senza inizio né fine chiara.
         Nell'Illuminismo, quando si credeva nella ragione e nella simmetria,
@@ -411,6 +372,11 @@
       <div class="section-number">Parte II</div>
       <h2>Tempo, misura, durata</h2>
       <div class="section-subtitle">I parametri fondamentali</div>
+      <aside class="notes">
+        Prima di partire nel nostro viaggio, dobbiamo capire tre concetti di base
+        che torneranno in continuazione: pulsazione, ritmo e metro.
+        Sono i mattoni con cui la musica costruisce il tempo.
+      </aside>
     </section>
 
     <section>
@@ -421,9 +387,6 @@
         <li class="fragment"><span class="accent">Metro</span> — l'organizzazione<br>in battute e accenti</li>
       </ul>
       <aside class="notes">
-        Prima di partire nel nostro viaggio, dobbiamo capire tre concetti di base
-        che torneranno in continuazione.
-
         <b>Il primo è la pulsazione.</b> Pensate al vostro cuore: batte regolarmente,
         un colpo dopo l'altro. La pulsazione musicale è la stessa cosa —
         è il battito di fondo della musica, quello che ci fa battere il piede.
@@ -562,11 +525,11 @@
 
     <section>
       <div class="video-label">
-        <span class="composer">Veni Creator Spiritus</span> — Canto gregoriano monodico
+        <span class="composer">Hymnus: Veni, creator Spiritus</span> — Canto gregoriano
       </div>
       <div class="video-container">
         <iframe
-          data-src="https://www.youtube-nocookie.com/embed/HEKuxUOPzk8?start=0&end=120&rel=0"
+          data-src="https://www.youtube-nocookie.com/embed/5u7jTuDBgA4?rel=0"
           referrerpolicy="strict-origin-when-cross-origin"
           allow="autoplay; encrypted-media"
           allowfullscreen data-autoplay>
@@ -1877,31 +1840,6 @@
     plugins: [ RevealNotes ],
   });
 
-  // Inline notes for iPad / no-keyboard
-  (function() {
-    // Copy aside.notes content into visible inline-notes divs
-    document.querySelectorAll('aside.notes').forEach(function(aside) {
-      var div = document.createElement('div');
-      div.className = 'inline-notes';
-      div.innerHTML = aside.innerHTML;
-      aside.parentNode.appendChild(div);
-    });
-
-    // Add toggle button
-    var btn = document.createElement('button');
-    btn.className = 'notes-toggle';
-    btn.textContent = 'N';
-    btn.title = 'Mostra/nascondi note';
-    btn.addEventListener('click', function() {
-      document.body.classList.toggle('show-notes');
-    });
-    document.body.appendChild(btn);
-
-    // Auto-show notes if ?notes=true in URL
-    if (window.location.search.indexOf('notes=true') !== -1) {
-      document.body.classList.add('show-notes');
-    }
-  })();
 </script>
 </body>
 </html>
